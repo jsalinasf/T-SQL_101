@@ -32,3 +32,14 @@ WHERE person.firstName = 'Patricio'
 -- DELETE
 -- ################
 
+DELETE
+FROM dbo.Person
+WHERE Person.firstName = 'Alexander'
+
+DELETE
+FROM dbo.Person
+WHERE Person.Age = 5
+
+DELETE
+FROM dbo.Person
+-- DO NOT FORGET the WHERE STATEMENT if so, all of your data will be DELETED!!!
