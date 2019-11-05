@@ -50,6 +50,10 @@ UPDATE dbo.Person
 SET Person.Age = 27
 WHERE Person.firstName = 'Wally'
 
+UPDATE dbo.Person
+SET Person.Age = 37
+WHERE Person.Age > 40
+
 --Updating a several columns at once -- 
 UPDATE dbo.Person
 SET Person.firstName = 'Wally West', Person.Age = 25
