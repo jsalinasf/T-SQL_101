@@ -1,3 +1,13 @@
+-- Drop Table
+DROP TABLE dbo.Person
+
+-- Create Table
+Create TABLE Person (
+	firstName varchar(50) NOT NULL,
+	Age int,
+	eyeColor varchar(50)
+)
+
 -- Recreating Table from FirstDB using INSERT SELECT Clause
 INSERT INTO dbo.Person([firstName],[Age])
 SELECT firstName, age
