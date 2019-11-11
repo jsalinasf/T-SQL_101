@@ -54,5 +54,11 @@ SELECT LouisvilleCrime.CrimeType, LouisvilleCrime.DateOccurred
 FROM dbo.LouisvilleCrime
 ORDER BY LouisvilleCrime.CrimeType, LouisvilleCrime.DateOccurred
 
+SELECT LouisvilleCrime.CrimeType, LouisvilleCrime.ZipCode, LouisvilleCrime.DateOccurred
+FROM dbo.LouisvilleCrime
+ORDER BY LouisvilleCrime.CrimeType, LouisvilleCrime.ZipCode, LouisvilleCrime.DateOccurred
 
-
+SELECT LouisvilleCrime.CrimeType, LouisvilleCrime.ZipCode, LouisvilleCrime.DateOccurred
+FROM dbo.LouisvilleCrime
+WHERE LouisvilleCrime.CrimeType LIKE '%THEFT%'
+ORDER BY LouisvilleCrime.City, LouisvilleCrime.ZipCode, LouisvilleCrime.DateOccurred
