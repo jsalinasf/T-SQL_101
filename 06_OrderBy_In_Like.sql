@@ -48,3 +48,11 @@ FROM LouisvilleCrime
 WHERE LouisvilleCrime.CrimeType = 'THEFT/LARCENY'
 ORDER BY LouisvilleCrime.ZipCode
 
+
+-- ORDER BY for multiple COLUMNS
+SELECT LouisvilleCrime.CrimeType, LouisvilleCrime.DateOccurred
+FROM dbo.LouisvilleCrime
+ORDER BY LouisvilleCrime.CrimeType, LouisvilleCrime.DateOccurred
+
+
+
