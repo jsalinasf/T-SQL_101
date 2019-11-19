@@ -26,4 +26,4 @@ SELECT 3 + 6
 -- FIRST FUNCTION
 --	Pay attetion to the function STR()  
 SELECT [Name] + '(' + STR(IBU) + ')'
-FROM dbo.Beers
+FROM Beers
