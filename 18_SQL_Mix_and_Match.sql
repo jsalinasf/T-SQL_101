@@ -4,3 +4,14 @@
 SELECT AVG(AnnualRate)
 FROM SalaryData
 WHERE JobTitle = 'Police Officer'
+
+--Group the Salary table by Department and get the average AnnualRate for each Department using the AVG() function.
+SELECT Department, AVG(AnnualRate)
+FROM SalaryData
+GROUP BY Department
+
+-- Group the Salary table by Department and get the average AnnualRate for each Department using the AVG() function.
+SELECT Department, AVG(AnnualRate)
+FROM SalaryData
+GROUP BY Department
+ORDER BY AVG(AnnualRate)
