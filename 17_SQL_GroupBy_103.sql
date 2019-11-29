@@ -47,3 +47,24 @@ SELECT Department, JobTitle
 FROM SalaryData
 GROUP BY Department, JobTitle
 ORDER BY Department
+
+--Group the Salary table by Department and JobTitle, just like the last challenge.
+--Return the Department and JobTitle columns, along with the average AnnualRate.
+SELECT Department, JobTitle, AVG(AnnualRate)
+FROM SalaryData
+GROUP BY Department, JobTitle
+ORDER BY Department
+
+--Group the Salary table by Department and JobTitle.
+--This time, get the COUNT for each group.
+SELECT Department, JobTitle, Count(*)
+FROM SalaryData
+GROUP BY Department, JobTitle
+ORDER BY Department
+
+--Modify the previous challenge, Count the Groups, to only show those groups HAVING a COUNT(*) more than 100.
+SELECT Department, JobTitle, Count(*)
+FROM SalaryData
+GROUP BY Department, JobTitle
+HAVING Count(*) > 100
+ORDER BY Department
