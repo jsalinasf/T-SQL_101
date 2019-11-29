@@ -27,3 +27,10 @@ GROUP BY SalaryData.Department
 SELECT SalaryData.Department, MAX(SalaryData.AnnualRate)
 FROM dbo.SalaryData
 GROUP BY SalaryData.Department
+
+-- If you have a GROUP BY clause in your query, then any column in your SELECT statement must be in the GROUP BY clause, or contained in an aggregate function (like MAX).
+SELECT SalaryData.Department, SalaryData.EmployeeName, MAX(SalaryData.AnnualRate) AS MaxAnnualRate
+FROM dbo.SalaryData
+GROUP BY SalaryData.Department, SalaryData.EmployeeName
+ORDER BY MaxAnnualRate DESC
+
