@@ -23,4 +23,27 @@ FROM dbo.SalaryData
 GROUP BY SalaryData.Department
 HAVING COUNT(SalaryData.EmployeeName) > 500
 
+-- HAVING and WHERE
+--You can use both the WHERE clause and the HAVING clause in the same query.
+--*The WHERE clause happens BEFORE the rows are grouped. The HAVING clause happens AFTER the rows are grouped.
+--Any rows that are filtered out by the WHERE clause will not be included in the groups. Run the starter script to see how it changes our previous challenge.
 
+SELECT Department, COUNT(*)
+FROM SalaryData
+WHERE Department <> 'Louisville Fire'
+GROUP BY Department
+HAVING COUNT(*) > 500
+
+
+-- Group the rows in the Salary table by JobTitle. Filter the rows using the WHERE clause. Only show job titles that begin with Director.
+SELECT SalaryData.JobTitle
+FROM dbo.SalaryData
+WHERE SalaryData.JobTitle like 'Director%'
+GROUP BY SalaryData.JobTitle
+
+--You can GROUP BY several columns.
+--The starter script will first group the Department column into groups. Then, within each Department group, it will create separate groups for each JobTitle.
+SELECT Department, JobTitle
+FROM SalaryData
+GROUP BY Department, JobTitle
+ORDER BY Department
