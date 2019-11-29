@@ -33,4 +33,3 @@ SELECT SalaryData.Department, SalaryData.EmployeeName, MAX(SalaryData.AnnualRate
 FROM dbo.SalaryData
 GROUP BY SalaryData.Department, SalaryData.EmployeeName
 ORDER BY MaxAnnualRate DESC
-
