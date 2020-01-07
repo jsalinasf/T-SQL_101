@@ -1,6 +1,5 @@
 --The row with Id 102621 in the TrafficStops table has a CitationNumber of CI67406.
 --Select all the columns (*) from Citations where the CitationControlNumber is equal to  CI67406.
-
 SELECT *
 FROM UniformCitationData
 WHERE CitationControlNumber = 'CT45971'
@@ -29,3 +28,11 @@ WHERE CitationControlNumber IN (
 	FROM TrafficStops
 	WHERE VehicleSearched = 'YES'
 )
+
+
+--We can also use subqueries as a calculated field.
+--This script will show the average PersonsAge along with a few other columns.
+SELECT 
+(SELECT AVG(UniformCitationData.PersonsAge) FROM UniformCitationData) as AverageAge, PersonsAge, ChargeDescr
+FROM UniformCitationData
+
