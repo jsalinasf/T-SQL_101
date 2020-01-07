@@ -36,3 +36,17 @@ SELECT
 (SELECT AVG(UniformCitationData.PersonsAge) FROM UniformCitationData) as AverageAge, PersonsAge, ChargeDescr
 FROM UniformCitationData
 
+
+--Subtract the PersonsAge from the average PersonsAge for each row. Alias this column as  AgeDiff.
+SELECT
+(SELECT AVG(PersonsAge) FROM UniformCitationData) - PersonsAge AS AgeDiff, ChargeDescr
+FROM UniformCitationData
+
+
+--Select the ChargeDesc column associated with the oldest person in the Citations. You will need to use a subquery to accomplish this with one query.
+SELECT ChargeDescr
+FROM UniformCitationData
+WHERE PersonsAge = (
+	SELECT MAX(PersonsAge)
+	FROM UniformCitationData
+)
