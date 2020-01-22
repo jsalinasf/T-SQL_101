@@ -8,3 +8,12 @@ ON be.BusinessEntityID = bea.BusinessEntityID
 --where clause needed here
 WHERE bea.BusinessEntityID IS NULL
 
+
+--Return all Names from dbo.Breweries table that do not have a corresponding row in the dbo.Beers table.
+--The BreweryId column in dbo.Beers refers to the Id column in dbo.Breweries.
+SELECT bre.[Name]
+FROM dbo.Breweries bre
+LEFT JOIN dbo.Beers bee
+ON bre.Id = bee.BreweryId
+WHERE bee.BreweryId IS NULL
+
