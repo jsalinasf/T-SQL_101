@@ -28,4 +28,20 @@
 
 --SELECT dbo.AddNumbers (3, 4)
 
+CREATE FUNCTION dbo.Multiply (@num1 int, @num2 int)
+RETURNS INT
+AS
+BEGIN
+    RETURN @num1 * @num2
+END;
 
+-- SELECT dbo.Multiply(2,3)
+
+-- Let's take a look at how we might use our dbo.Multiply function. If you look at the test.Student table, you can see we have a column named Age. Let's use our function on that column.
+-- Run the query below to see how we can do that.
+
+--SELECT [Name], 
+--		Major, 
+--		Age, 
+--		dbo.Multiply(AGE, 10) as AgeTimes10
+--FROM test.Student
