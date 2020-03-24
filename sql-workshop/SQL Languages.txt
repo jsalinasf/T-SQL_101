@@ -1,0 +1,9 @@
+DDL data definition language: create, alter, drop , rename, truncate
+
+DML Data manipulation language: insert update delete merge
+
+DCL data control language:grant revoke
+
+TCL transaction control language: commit rollback savepoint set transaction
+
+DQL data query language: select
