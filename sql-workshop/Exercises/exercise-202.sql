@@ -16,6 +16,7 @@ VALUES
 INSERT INTO Department (departmentName, departmentLoc)
 VALUES
 ('Administration',DEFAULT),
-('IT',DEFAULT);
+('IT',DEFAULT),
+('Administration','NYC');
 
 SELECT * FROM Department;

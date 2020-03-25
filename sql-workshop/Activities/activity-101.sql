@@ -1,4 +1,8 @@
-create table Products
+USE PACKT_ONLINE_SHOP;
+
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE Products
 (
 	ProductID INT NOT NULL AUTO_INCREMENT,
     ProductCategoryID INT NOT NULL,
