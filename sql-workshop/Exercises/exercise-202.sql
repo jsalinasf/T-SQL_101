@@ -13,4 +13,9 @@ INSERT INTO Department (departmentName)
 VALUES
 ('MyDepartment');
 
+INSERT INTO Department (departmentName, departmentLoc)
+VALUES
+('Administration',DEFAULT),
+('IT',DEFAULT);
+
 SELECT * FROM Department;
