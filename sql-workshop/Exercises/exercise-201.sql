@@ -1,3 +1,5 @@
+drop database if exists EMPLOYEE;
+
 create database EMPLOYEE;
 
 use EMPLOYEE;
