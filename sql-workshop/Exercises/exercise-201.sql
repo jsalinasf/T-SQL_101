@@ -1,12 +1,10 @@
-drop database if exists EMPLOYEE;
+DROP DATABASE IF EXISTS EMPLOYEE;
+CREATE DATABASE EMPLOYEE;
+USE EMPLOYEE;
 
-create database EMPLOYEE;
-
-use EMPLOYEE;
-
-create table Department
+CREATE TABLE Department
 (
-	departmentNo INT Primary Key,
+	departmentNo INT PRIMARY KEY,
     departmentName VARCHAR(20) NOT NULL,
     departmentLoc VARCHAR(50) NOT NULL
 );
@@ -15,4 +13,4 @@ INSERT INTO Department (departmentNo, departmentName, departmentLoc)
 VALUE
 (1,'Engg','Texas');
 
-SELECT * from Department;
+SELECT * FROM Department;
