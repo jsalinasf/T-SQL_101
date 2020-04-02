@@ -1,0 +1,5 @@
+SHOW COLUMNS FROM products;
+
+SHOW DATABASES;
+
+SHOW TABLES IN packt_online_shop;

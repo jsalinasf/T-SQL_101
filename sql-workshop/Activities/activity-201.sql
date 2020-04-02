@@ -6,6 +6,10 @@ ALTER TABLE products ALTER ProductCategoryID SET DEFAULT 1;
 
 SHOW COLUMNS FROM products;
 
+SHOW DATABASES;
+
+SHOW TABLES IN packt_online_shop;
+
 SELECT * from products;
 
 INSERT INTO products(SupplierID,ProductName,NetRetailPrice,AvailableQuantity,WholesalePrice,UnitKGWeight,Notes)
