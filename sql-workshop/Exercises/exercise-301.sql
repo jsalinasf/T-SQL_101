@@ -20,12 +20,29 @@ CREATE TABLE IF NOT EXISTS employee
     eJob VARCHAR(30) NOT NULL,
     eManager char(4),
     eJoinDate TIMESTAMP NOT NULL,
-    eGender CHAR(1),
+    eGender CHAR(1) CHECK (eGender IN ('M','F')),
     eSalary DECIMAL(8,2) DEFAULT 0,
     eCommission DECIMAL(8,2) DEFAULT 0,
-    eDeptNo INT 
+    eDeptNo INT,
+    FOREIGN KEY FK_Department_dno (eDeptNo) REFERENCES department(dno)
 );
 
-SHOW TABLES IN employeedemo;
+-- SHOW TABLES IN employeedemo;
 
-SHOW COLUMNS FROM department;
+-- SHOW COLUMNS FROM department;
+
+SHOW COLUMNS FROM employee;
+
+INSERT INTO department
+VALUES
+(
+	1,'IT','Texas'
+);
+
+INSERT INTO employee (eNo, eName, eJob, eManager, eJoinDate, eGender, eSalary, eCommission, eDeptNo)
+VALUES
+(
+	'A001','May Parker','IT Help Desk','',NOW(),'F',1250,300,1
+);
+
+SELECT * FROM employee;
