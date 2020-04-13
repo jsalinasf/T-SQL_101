@@ -9,6 +9,7 @@ USE packt_online_shop;
 
 -- ALTER TABLE customers ADD COLUMN CustomerID INT PRIMARY KEY AUTO_INCREMENT
 
+DROP TABLE IF EXISTS orderitems;
 DROP TABLE IF EXISTS orders;
 CREATE TABLE orders
 (
@@ -26,4 +27,26 @@ INSERT INTO orders (CustomerID,OrderNumber,OrderDate,ShipmentDate,OrderStatus,No
 VALUES
 (1,1,DEFAULT,DEFAULT,'Closed','Deliver over weekends');
 
-SELECT * from orders;
+-- SELECT * from orders;
+
+CREATE TABLE IF NOT EXISTS orderitems
+(
+	OrderItemID INT PRIMARY KEY AUTO_INCREMENT,
+    OrderID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL (10,2) NOT NULL,
+    Discount DECIMAL (10,2) DEFAULT 0,
+    Notes VARCHAR(250),
+    FOREIGN KEY (OrderID) REFERENCES orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES products(ProductID)
+);
+
+INSERT INTO orderitems (OrderID,ProductID,Quantity,UnitPrice,Discount,Notes)
+VALUES
+(
+	1,1,10,3.50,DEFAULT,'Items should be delivered frozen'
+);
+
+SELECT * from orderitems;
+
