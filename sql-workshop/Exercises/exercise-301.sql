@@ -20,11 +20,11 @@ CREATE TABLE IF NOT EXISTS employee
     eJob VARCHAR(30) NOT NULL,
     eManager char(4),
     eJoinDate TIMESTAMP NOT NULL,
-    eGender CHAR(1) CHECK (eGender IN ('M','F')),
+    eGender CHAR(1) CONSTRAINT gender_chk CHECK (eGender IN ('M','F')),
     eSalary DECIMAL(8,2) DEFAULT 0,
     eCommission DECIMAL(8,2) DEFAULT 0,
-    eDeptNo INT,
-    FOREIGN KEY FK_Department_dno (eDeptNo) REFERENCES department(dno)
+    eDeptNo INT NOT NULL,
+    FOREIGN KEY (eDeptNo) REFERENCES department(dno)
 );
 
 -- SHOW TABLES IN employeedemo;
