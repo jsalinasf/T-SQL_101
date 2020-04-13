@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS employee
     eSalary DECIMAL(8,2) DEFAULT 0,
     eCommission DECIMAL(8,2) DEFAULT 0,
     eDeptNo INT NOT NULL,
-    FOREIGN KEY (eDeptNo) REFERENCES department(dno)
+    FOREIGN KEY FK_department_dno(eDeptNo) REFERENCES department(dno)
 );
 
 -- SHOW TABLES IN employeedemo;
