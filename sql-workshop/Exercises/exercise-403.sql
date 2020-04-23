@@ -2,7 +2,7 @@ USE packt_online_shop;
 
 -- SHOW COLUMNS IN products;
 
-SELECT ProductID, ProductName, NetRetailPrice
+SELECT ProductName, NetRetailPrice
 FROM products
 ORDER BY NetRetailPrice DESC
 LIMIT 5;
