@@ -13,10 +13,11 @@ SHOW COLUMNS FROM orderitems;
 -- Using a SUBQUERY
 SELECT products.ProductID, products.ProductName, products.ProductCategoryID
 FROM products
-WHERE ProductID NOT IN (
-	SELECT ProductID
+WHERE products.ProductID NOT IN (
+	SELECT orderitems.ProductID
     FROM orderitems
-);
+)
+ORDER BY products.ProductID;
 
 -- Using a regular query
 SELECT products.ProductID, products.ProductName, products.ProductCategoryID
