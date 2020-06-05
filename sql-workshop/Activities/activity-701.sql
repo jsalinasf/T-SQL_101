@@ -1,0 +1,3 @@
+-- The Packt Online Shop management team needs to know the product category name 
+-- for the habanero peppers product. You are asked to find the required 
+-- information. Use a subquery to retrieve the requested data
