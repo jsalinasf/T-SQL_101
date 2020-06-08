@@ -11,34 +11,27 @@
 
 USE packt_online_shop;
 
-SHOW COLUMNS FROM orders;
+DROP VIEW IF EXISTS Hopper_Sales_View;
 
-DROP VIEW IF EXISTS PACKT_VIEW_2;
-
-CREATE VIEW PACKT_VIEW_2
+CREATE VIEW Hopper_Sales_View
 AS
 SELECT 
-	CONCAT(customers.FirstName,' ' ,customers.LastName) AS 'CustomerName',
-	orders.OrderID,
     orderitems.ProductID,
-    products.ProductName,
     orderitems.Quantity,
     orderitems.UnitPrice,
     orderitems.Quantity * orderitems.UnitPrice AS 'Subtotal',
     CASE
 		WHEN (orderitems.Quantity * orderitems.UnitPrice) < 25.00 THEN 'Small'
-        WHEN (orderitems.Quantity * orderitems.UnitPrice) >= 25.00 AND (orderitems.Quantity * orderitems.UnitPrice) <= 79.99 THEN 'Medium'
+        WHEN (orderitems.Quantity * orderitems.UnitPrice) <= 79.99 THEN 'Medium'
         ELSE 'Large'
     END
     AS 'SubtotalCategory'
-FROM customers
+FROM orderitems
 	INNER JOIN orders
-    ON customers.CustomerID = orders.CustomerID
-	INNER JOIN orderitems
-    ON orders.OrderID = orderitems.OrderID
-    INNER JOIN products
-    ON orderitems.ProductID = products.ProductID;
+    ON orderitems.OrderID = orders.OrderID
+WHERE orders.CustomerID IN (
+	SELECT customers.CustomerID FROM customers WHERE customers.LastName = 'Hopper'
+);
     
 SELECT *
-FROM PACKT_VIEW_2
-WHERE SubtotalCategory = 'Large';
+FROM Hopper_Sales_View;
