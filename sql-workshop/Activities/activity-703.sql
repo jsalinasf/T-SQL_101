@@ -13,8 +13,12 @@ USE packt_online_shop;
 
 SHOW COLUMNS FROM orders;
 
+DROP VIEW IF EXISTS PACKT_VIEW_2;
+
+CREATE VIEW PACKT_VIEW_2
+AS
 SELECT 
-	CONCAT(customers.FirstName,' ' ,customers.LastName) AS 'Customer Name',
+	CONCAT(customers.FirstName,' ' ,customers.LastName) AS 'CustomerName',
 	orders.OrderID,
     orderitems.ProductID,
     products.ProductName,
@@ -26,7 +30,7 @@ SELECT
         WHEN (orderitems.Quantity * orderitems.UnitPrice) >= 25.00 AND (orderitems.Quantity * orderitems.UnitPrice) <= 79.99 THEN 'Medium'
         ELSE 'Large'
     END
-    AS 'Subtotal Category'
+    AS 'SubtotalCategory'
 FROM customers
 	INNER JOIN orders
     ON customers.CustomerID = orders.CustomerID
@@ -34,3 +38,7 @@ FROM customers
     ON orders.OrderID = orderitems.OrderID
     INNER JOIN products
     ON orderitems.ProductID = products.ProductID;
+    
+SELECT *
+FROM PACKT_VIEW_2
+WHERE SubtotalCategory = 'Large';
