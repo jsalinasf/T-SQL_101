@@ -14,4 +14,3 @@ SELECT
     products.UnitKGWeight
 FROM products
 ORDER BY products.productName;
-
