@@ -22,5 +22,5 @@ SELECT
         WHEN orders.ShipmentDate >= '2010-12-15' AND orders.ShipmentDate <= '2019-12-15' THEN 'Recent Shipment Date'
         ELSE 'Future Shipment Date'
     END
-    AS 'Shipment Dates'
+    AS 'Shipment Date Category'
 FROM orders
