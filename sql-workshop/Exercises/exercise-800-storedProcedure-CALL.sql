@@ -1,2 +1,2 @@
 USE packt_online_shop;
-CALL spFilterProductsByNRP(100.00);
+CALL spFilterProductsByNRP(10.50);
