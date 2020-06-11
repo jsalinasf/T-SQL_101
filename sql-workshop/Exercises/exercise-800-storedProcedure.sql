@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spFilterProductsByNRP`(IN priceLevel FLOAT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spFilterProductsByNRP`(IN priceLevel FLOAT, IN unitWeight FLOAT)
 BEGIN
 
 	SELECT 
@@ -11,9 +11,10 @@ BEGIN
 			WHEN NetRetailPrice >79.99 AND NetRetailPrice <= 2499.99 THEN 'Expensive'
 			ELSE 'Very Expensive'
 		END AS 'PricePoint',
-		UnitKGWeight
+		AvailableQuantity,
+        UnitKGWeight
 	FROM products
-    WHERE NetRetailPrice <= priceLevel
+    WHERE NetRetailPrice <= priceLevel AND UnitKGWeight <= unitWeight
     ORDER BY ProductName;
 
 END
