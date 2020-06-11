@@ -1,6 +1,10 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spFilterProductsByNRP`(IN priceLevel FLOAT, IN unitWeight FLOAT)
-BEGIN
+USE packt_online_shop;
 
+DROP PROCEDURE IF EXISTS spFilterProductsByNRP;
+
+CREATE PROCEDURE spFilterProductsByNRP
+(priceLevel FLOAT,
+unitWeight FLOAT)
 	SELECT 
 		ProductName,
 		WholeSalePrice,
@@ -14,7 +18,5 @@ BEGIN
 		AvailableQuantity,
         UnitKGWeight
 	FROM products
-    WHERE NetRetailPrice <= priceLevel AND UnitKGWeight <= unitWeight
+    WHERE NetRetailPrice <= priceLevel AND UnitKGWeight <= unitWeight    
     ORDER BY ProductName;
-
-END
