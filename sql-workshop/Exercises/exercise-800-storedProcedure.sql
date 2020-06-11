@@ -1,20 +1,19 @@
-CREATE PROCEDURE 'spFilterProductsByNRP' (IN priceLevel FLOAT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spFilterProductsByNRP`(IN priceLevel FLOAT)
 BEGIN
 
 	SELECT 
-	products.ProductName,
-	products.WholeSalePrice,
-    products.NetRetailPrice,
-    CASE
-		WHEN products.NetRetailPrice <= 24.99 THEN 'Cheap'
-        WHEN products.NetRetailPrice >24.99 AND products.NetRetailPrice <= 79.99 THEN 'Mid-Price'
-        WHEN products.NetRetailPrice >79.99 AND products.NetRetailPrice <= 2499.99 THEN 'Expensive'
-        ELSE 'Very Expensive'
-    END
-    AS 'PricePoint',
-    products.UnitKGWeight
+		ProductName,
+		WholeSalePrice,
+		NetRetailPrice,
+		CASE
+			WHEN NetRetailPrice <= 24.99 THEN 'Cheap'
+			WHEN NetRetailPrice >24.99 AND NetRetailPrice <= 79.99 THEN 'Mid-Price'
+			WHEN NetRetailPrice >79.99 AND NetRetailPrice <= 2499.99 THEN 'Expensive'
+			ELSE 'Very Expensive'
+		END AS 'PricePoint',
+		UnitKGWeight
 	FROM products
-    WHERE products.NetRetailPrice <= priceLevel;
-
+    WHERE NetRetailPrice <= priceLevel
+    ORDER BY ProductName;
 
 END
