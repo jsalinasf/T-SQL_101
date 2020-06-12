@@ -1,3 +1,3 @@
 USE packt_online_shop;
 
-CALL spOrderItemQuantities(4);
+CALL spFilterOrdersByItemQuantity(4);
