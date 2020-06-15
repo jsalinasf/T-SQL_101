@@ -3,8 +3,8 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `fnCountCustomerOrders`(CustomerID In
 BEGIN
 /*
 	To test:
-	packt_online_shop.fnCountCustomerOrders(3)
-    packt_online_shop.fnCountCustomerOrders(12)
+	SELECT packt_online_shop.fnCountCustomerOrders(3)
+    SELECT packt_online_shop.fnCountCustomerOrders(12)
 */
 
 DECLARE countOrders INTEGER;
