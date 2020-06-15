@@ -1,0 +1,11 @@
+SET @var1 = NULL, @var2 = 'A test string';
+SET @var1 = 3;
+SELECT LOG(@var1);
+SELECT @var1;
+SELECT EXP(LOG(@var1));
+SELECT @var1;
+SELECT LOG(EXP(@var1));
+SELECT @var1;
+SET @var1 = @var1 * 5;
+SELECT @var1;
+SELECT upper(@var2);
