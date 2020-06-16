@@ -23,8 +23,8 @@ BEGIN
 				SELECT	P.*
 				FROM	Products P
 				WHERE	P.SupplierID = 3;
-	*/
-
+	*/	
+    
 	DECLARE	supplierID   INT;
 	DECLARE	supplierProductCount INT;
 	DECLARE	supplierCountText VARCHAR(1000);
@@ -47,30 +47,30 @@ BEGIN
 							WHERE	S.SupplierID = supplierID
 						);
 
--- 		SET	supplierCountText = (
--- 							SELECT CONCAT("This supplier (Supplier ", CAST(supplierID AS CHAR), ")")
--- 						);
+		SET	supplierCountText = (
+							SELECT CONCAT("This supplier (Supplier ", CAST(supplierID AS CHAR), ")")
+						);
 
--- 		SET	supplierCountText = (
--- 							SELECT CONCAT(supplierCountText, " has ", CAST(supplierProductCount AS CHAR))
--- 						);
+		SET	supplierCountText = (
+							SELECT CONCAT(supplierCountText, " has ", CAST(supplierProductCount AS CHAR))
+						);
 
--- 		SET	supplierCountText = (
--- 							SELECT CONCAT(supplierCountText, " products available here at Packt as of ")
--- 						);
--- 		
--- 		SET	supplierCountText = (
--- 							SELECT CONCAT(supplierCountText, DATE_FORMAT(NOW(), "%b %d, %Y"))
--- 						);
+		SET	supplierCountText = (
+							SELECT CONCAT(supplierCountText, " products available here at Packt as of ")
+						);
+		
+		SET	supplierCountText = (
+							SELECT CONCAT(supplierCountText, DATE_FORMAT(NOW(), "%b %d, %Y"))
+						);
 
-		SET	supplierCountText = ("Test 01");
+		
 
 	#	Update the Customers.BalanceNotes column
 	#	for that specific customerID
-	
+        
 		UPDATE	Suppliers
-		SET	Suppliers.Notes = supplierCountText
-		WHERE	Suppliers.SupplierID = supplierID;
+		SET	Suppliers.Notes = supplierCountText        
+		WHERE	Suppliers.SupplierID = supplierID;	
 
 	END$$
 
